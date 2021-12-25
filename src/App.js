@@ -33,6 +33,12 @@ export default class App extends Component {
       localStorage.setItem("theme", this.state.themeTitle);
       console.log("theme update");
     }
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem(
+        "local-contacts",
+        JSON.stringify(this.state.contacts)
+      );
+    }
   }
 
   handleThemeSwitch = () => {
