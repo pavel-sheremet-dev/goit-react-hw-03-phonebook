@@ -1,5 +1,5 @@
 export const light = {
-  title: "light",
+  themeTitle: "light",
   colors: {
     mainBrandColor: "#236d44",
     fontColor: "#000000",

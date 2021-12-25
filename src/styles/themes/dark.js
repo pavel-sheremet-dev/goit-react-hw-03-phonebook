@@ -1,5 +1,5 @@
 export const dark = {
-  title: "dark",
+  themeTitle: "dark",
   colors: {
     mainBrandColor: "#236d44",
     fontColor: "#dddddd",

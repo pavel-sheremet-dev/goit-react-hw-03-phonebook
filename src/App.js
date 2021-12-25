@@ -21,34 +21,23 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default class App extends Component {
   state = {
-    title: "dark",
-    contacts: [],
+    themeTitle: localStorage.getItem("theme") || "dark",
+    contacts: JSON.parse(localStorage.getItem("local-contacts")) || [],
     filter: "",
   };
 
-  componentDidMount() {
-    const contacts = localStorage.getItem("local-contacts");
-    if (contacts) {
-      this.setState({ contacts: JSON.parse(contacts) });
-    }
-  }
+  componentDidMount() {}
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem(
-        "local-contacts",
-        JSON.stringify(this.state.contacts)
-      );
-      console.log("localStorage update");
+    if (this.state.themeTitle !== prevState.themeTitle) {
+      localStorage.setItem("theme", this.state.themeTitle);
+      console.log("theme update");
     }
-    console.log("update");
   }
 
-  componentWillUnmount() {}
-
   handleThemeSwitch = () => {
-    this.setState(({ title }) => ({
-      title: title === "light" ? "dark" : "light",
+    this.setState(({ themeTitle }) => ({
+      themeTitle: themeTitle === "light" ? "dark" : "light",
     }));
   };
 
@@ -94,18 +83,18 @@ export default class App extends Component {
   // };
 
   render() {
-    const { title, contacts, filter } = this.state;
+    const { themeTitle, contacts, filter } = this.state;
     const filteredContacts = this.getFilteredContacts(contacts, filter);
     return (
       <>
-        <ThemeProvider theme={themes[title]}>
+        <ThemeProvider theme={themes[themeTitle]}>
           <GlobalStyle />
           <Header>
             <HeaderContainer>
               <Logo />
               <ThemeSwitcher
                 onBtnClick={this.handleThemeSwitch}
-                currentTheme={title}
+                currentTheme={themeTitle}
               />
             </HeaderContainer>
           </Header>
