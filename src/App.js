@@ -4,6 +4,6 @@ export default class App extends Component {
   state = {};
 
   render() {
-    return <div>Hello</div>;
+    return <div>Hello world</div>;
   }
 }
