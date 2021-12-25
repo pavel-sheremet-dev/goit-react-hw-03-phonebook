@@ -26,8 +26,6 @@ export default class App extends Component {
     filter: "",
   };
 
-  componentDidMount() {}
-
   componentDidUpdate(prevProps, prevState) {
     if (this.state.themeTitle !== prevState.themeTitle) {
       localStorage.setItem("theme", this.state.themeTitle);
@@ -83,10 +81,6 @@ export default class App extends Component {
       name.toLowerCase().includes(normalizedFilter)
     );
   };
-
-  // componentDidUpdate = (prevProp, prevState) => {
-  //   console.log(prevState.contacts === this.state.contacts);
-  // };
 
   render() {
     const { themeTitle, contacts, filter } = this.state;
