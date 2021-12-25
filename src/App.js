@@ -29,7 +29,6 @@ export default class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.state.themeTitle !== prevState.themeTitle) {
       localStorage.setItem("theme", this.state.themeTitle);
-      console.log("theme update");
     }
     if (this.state.contacts !== prevState.contacts) {
       localStorage.setItem(

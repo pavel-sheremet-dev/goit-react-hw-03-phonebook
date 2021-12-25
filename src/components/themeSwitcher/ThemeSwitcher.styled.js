@@ -14,6 +14,8 @@ export const ThemeBtn = styled.button`
 export const ThemeIcon = styled.svg`
   width: 30px;
   height: 30px;
-  transform: rotate(0.12turn);
   fill: ${({ theme }) => theme.colors.fontColor};
+  transform: rotate(0.12turn) scale(${({ scale }) => scale});
+  opacity: ${({ opacity }) => opacity};
+  transition: opacity 125ms linear, fill 125ms linear, transform 125ms linear;
 `;
